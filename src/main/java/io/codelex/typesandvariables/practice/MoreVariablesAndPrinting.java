@@ -2,25 +2,31 @@ package io.codelex.typesandvariables.practice;
 
 public class MoreVariablesAndPrinting {
     public static void main(String[] args) {
-        String myName, myEyes, myTeeth, myHair;
-        int myAge, myHeight, myWeight;
+        String name;
+        String eyes;
+        String teeth;
+        String hair;
+        int age;
+        double heightCm;
+        double weightKg;
 
-        myName = "Zed A. Shaw";
-        myAge = 35;
-        myHeight = 74;  // inches
-        myWeight = 180; // lbs
-        myEyes = "Blue";
-        myTeeth = "White";
-        myHair = "Brown";
+        name = "Zed A. Shaw";
+        age = 35;
+        heightCm = 74d * 2.54d;  // pounds to cm
+        weightKg = 180d * 0.453592d; // lbs to kg
+        eyes = "Blue";
+        teeth = "White";
+        hair = "Brown";
 
-        System.out.println("Let's talk about " + myName + ".");
-        System.out.println("He's " + myHeight + " inches tall.");
-        System.out.println("He's " + myWeight + " pounds heavy.");
+        System.out.println("Let's talk about " + name + ".");
+        System.out.println("He's " + String.format("%.2f", heightCm) + " cm tall.");
+        System.out.println("He's " + String.format("%.2f", weightKg) + " kg heavy.");
         System.out.println("Actually, that's not too heavy.");
-        System.out.println("He's got " + myEyes + " eyes and " + myHair + " hair.");
-        System.out.println("His teeth are usually " + myTeeth + " depending on the coffee.");
+        System.out.println("He's got " + eyes + " eyes and " + hair + " hair.");
+        System.out.println("His teeth are usually " + teeth + " depending on the coffee.");
 
-        System.out.println("If I add " + myAge + ", " + myHeight + ", and " + myWeight
-                + " I get " + (myAge + myHeight + myWeight) + ".");
+        System.out.println("If I add " + age + ", " + String.format("%.2f", heightCm) +
+                            " and " + String.format("%.2f", weightKg) + " I get " +
+                            (String.format("%.2f", (age + heightCm + weightKg)) + "."));
     }
 }
