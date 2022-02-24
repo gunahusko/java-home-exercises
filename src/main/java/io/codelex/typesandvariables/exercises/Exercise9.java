@@ -16,6 +16,7 @@ public class Exercise9 {
         int minutes = input.nextInt();
         System.out.print("Input seconds: ");
         int seconds = input.nextInt();
+        input.close();
 
         int allSeconds = (hours * 60 * 60) + (minutes * 60) + seconds;
         float allHours = hours + minutes/60f + seconds/60f/60f;

@@ -18,5 +18,6 @@ public class Exercise7 {
         }
 
         System.out.println("In this sentence is " + countUppercaseLetters + " uppercase letters.");
+        input.close();
     }
 }

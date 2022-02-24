@@ -15,5 +15,6 @@ public class Exercise8 {
         int remainingDays = days % 365;
 
         System.out.println(minutes + " minutes: " + years + " year(s) and " + remainingDays + " days.");
+        input.close();
     }
 }
