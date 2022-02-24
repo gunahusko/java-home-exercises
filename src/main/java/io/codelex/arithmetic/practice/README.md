@@ -2,17 +2,23 @@
 
 # Exercise #1 
 
-Write a Java program to accept two integers and return true if the either one is 15 or if their sum or difference is 15.
+Write a Java program to accept two integers and return true if
+the either one is 15 or if their sum or difference is 15.
 
 # Exercise #2
 
-Write a program called CheckOddEven which prints "Odd Number" if the int variable “number” is odd, or “Even Number” otherwise. The program shall always print “bye!” before exiting.
+Write a program called CheckOddEven which prints "Odd Number" if the
+int variable “number” is odd, or “Even Number” otherwise. The program
+shall always print “bye!” before exiting.
 
 # Exercise #3 
 
 See [SumAverageRunningInt.java](./SumAverageRunningInt.java)
 
-Write a program called SumAverageRunningInt to produce the sum of 1, 2, 3, ..., to 100. Store 1 and 100 in variables lowerbound and upperbound, so that we can change their values easily. Also compute and display the average. The output shall look like:
+Write a program called SumAverageRunningInt to produce the sum of
+1, 2, 3, ..., to 100. Store 1 and 100 in variables lowerbound and
+upperbound, so that we can change their values easily. Also compute
+and display the average. The output shall look like:
 
 ```
 The sum of 1 to 100 is 5050
@@ -21,7 +27,8 @@ The average is 50.5
 
 # Exercise #4
 
-Write a program called Product1ToN to compute the product of integers from 1 to 10 (i.e., 1×2×3×...×10), as an int. Take not that It is the same as factorial of N.
+Write a program called Product1ToN to compute the product of integers from
+1 to 10 (i.e., 1×2×3×...×10), as an int. Take not that It is the same as factorial of N.
 
 # Exercise #5
 

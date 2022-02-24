@@ -6,6 +6,7 @@ public class PrePostIncrement {
         int b = 35;
         int sum = a++ + ++b;
         System.out.println("sum = " + sum);
+
         // 1. 56
         // 2. 57
         // 3. 58
