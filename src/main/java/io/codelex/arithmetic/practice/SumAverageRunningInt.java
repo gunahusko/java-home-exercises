@@ -2,15 +2,11 @@ package io.codelex.arithmetic.practice;
 
 public class SumAverageRunningInt {
     public static void main(String[] args) {
-        SumAverageRunningInt();
-    }
-
-    public static void SumAverageRunningInt() {
-        int lowerbound = 1;
-        int upperbound = 100;
+        int lowerBound = 1;
+        int upperBound = 100;
 
         int sumOf1And100 = 0;
-        for (int i = lowerbound; i <= upperbound; i++) {
+        for (int i = lowerBound; i <= upperBound; i++) {
             sumOf1And100 += i;
         }
         double average = sumOf1And100 / 100d;
