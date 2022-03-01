@@ -13,7 +13,6 @@ public class Casting {
         int d = 4;
         int e = 5;
 
-        //fixme - should be 15 :| 
         int sum = a + b + c + d + e;
         System.out.println(sum);
     }
@@ -25,7 +24,6 @@ public class Casting {
         float d = 4.2f;
         float e = 5.3f;
 
-        //fixme - should be 15.5 :| 
         float sum = a + b + c + d + e;
         System.out.println(sum);
     }
