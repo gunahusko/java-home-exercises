@@ -2,7 +2,7 @@ package io.codelex.loops.exercises;
 
 public class Exercise8 {
 
-    private static final int FOUR = 4;
+    private static final int ONE_BLOCK_LENGTH = 4;
 
     public static void main(String[] args) {
         asciiFigure(5);
@@ -21,13 +21,13 @@ public class Exercise8 {
 
         for (int i = 1; i <= num; i++) {
             StringBuilder str = new StringBuilder();
-            for (int j = 1; j <= (num - i) * FOUR; j++) {
+            for (int j = 1; j <= (num - i) * ONE_BLOCK_LENGTH; j++) {
                 str.append("/");
             }
-            for (int k = 0; k < ((i - 1) * FOUR * 2); k++) {
+            for (int k = 0; k < ((i - 1) * ONE_BLOCK_LENGTH * 2); k++) {
                 str.append("*");
             }
-            for (int l = 1; l <= (num - i) * FOUR; l++) {
+            for (int l = 1; l <= (num - i) * ONE_BLOCK_LENGTH; l++) {
                 str.append("\\");
             }
             System.out.println(str);
@@ -39,9 +39,9 @@ public class Exercise8 {
         String str;
 
         for (int i = 1; i <= num; i++) {
-            str = "/".repeat((num - i) * FOUR);
-            str += "*".repeat((i - 1) * FOUR * 2);
-            str += "\\".repeat((num - i) * FOUR);
+            str = "/".repeat((num - i) * ONE_BLOCK_LENGTH);
+            str += "*".repeat((i - 1) * ONE_BLOCK_LENGTH * 2);
+            str += "\\".repeat((num - i) * ONE_BLOCK_LENGTH);
             System.out.println(str);
         }
 

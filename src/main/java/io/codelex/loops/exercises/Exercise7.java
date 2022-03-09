@@ -17,11 +17,9 @@ public class Exercise7 {
 
     private static void countPoints() {
         Random random = new Random();
-        int dice = random.nextInt(6);
+        int dice = random.nextInt(6) + 1;
 
-        if (dice < 1) {
-            dice = random.nextInt(6);
-        } else if (dice == 1) {
+         if (dice == 1) {
             System.out.println("You got 0 points.");
         } else {
             System.out.println("You rolled a " + dice + "!");
