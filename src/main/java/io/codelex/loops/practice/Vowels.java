@@ -2,19 +2,23 @@ package io.codelex.loops.practice;
 
 public class Vowels {
 
+    private static final char[] VOWELS = {'a', 'e', 'i', 'o', 'u'};
+
     public static void main(String[] args) {
-        char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+        exampleA();
+        exampleB();
+    }
 
+    private static void exampleA() {
+        System.out.println("Example: use for");
+        for (int i = 0; i < VOWELS.length; i++) {
+            System.out.println(VOWELS[i]);
+        }
+    }
 
-        // example A
-//        System.out.println("Example: use for");
-//        for (int i=0; i<vowels.length; i++) {
-//            System.out.println(vowels[i]);
-//        }
-
-        // example B
+    private static void exampleB() {
         System.out.println("Example: use foreach");
-        for (char abc : vowels) {
+        for (char abc : VOWELS) {
             System.out.println(abc);
         }
     }

@@ -1,13 +1,12 @@
 package io.codelex.flowcontrol.exercises;
-
 import java.util.Scanner;
 
 public class Exercise4 {
     public static void main(String[] args) {
-        PrintDayInWord();
+        printDayInWord();
     }
 
-    public static void PrintDayInWord() {
+    private static void printDayInWord() {
         System.out.println("Enter number from 0-6 to print a day (0-Sunday, 1-Monday, 2-Tuesday...): ");
         Scanner in = new Scanner(System.in);
         int dayNumber = in.nextInt();
