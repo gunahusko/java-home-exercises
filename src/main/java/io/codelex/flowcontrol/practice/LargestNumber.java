@@ -1,5 +1,4 @@
 package io.codelex.flowcontrol.practice;
-
 import java.util.Scanner;
 
 public class LargestNumber {
@@ -19,12 +18,12 @@ public class LargestNumber {
         findLargest(num1, num2, num3);
     }
 
-    public static void findLargest(int num1, int num2, int num3) {
+    private static void findLargest(int num1, int num2, int num3) {
         int largest = num1;
 
-        if (num2 > largest) {
+        if (num2 > largest && num2 > num3) {
             largest = num2;
-        } else if (num3 > largest) {
+        } else if (num3 > largest && num3 > num2) {
             largest = num3;
         }
 

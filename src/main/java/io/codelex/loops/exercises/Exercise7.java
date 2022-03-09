@@ -1,45 +1,42 @@
 package io.codelex.loops.exercises;
-
+import java.util.Random;
 import java.util.Scanner;
 
 public class Exercise7 {
-    static int points = 0;
-    static int dice = 0;
+
+    private static int points = 0;
 
     public static void main(String[] args) {
-        Piglet();
+        piglet();
     }
 
-    public static void Piglet() {
+    private static void piglet() {
         System.out.println("Welcome to Piglet!");
-        CountPoints();
+        countPoints();
     }
 
-    public static void CountPoints() {
-        int max = 6;
-        int min = 1;
-        int range = max - min + 1;
+    private static void countPoints() {
+        Random random = new Random();
+        int dice = random.nextInt(6);
 
-        dice = (int)(Math.random() * range) + min;
-        points += dice;
-        System.out.println("You rolled a " + dice + "!");
-
-        if (dice == 1) {
+        if (dice < 1) {
+            dice = random.nextInt(6);
+        } else if (dice == 1) {
             System.out.println("You got 0 points.");
-        } else if (dice > 1) {
+        } else {
+            System.out.println("You rolled a " + dice + "!");
+            points += dice;
             readBoolean();
         }
     }
 
-    public static void readBoolean() {
+    private static void readBoolean() {
         System.out.print("Roll again? ");
         Scanner in = new Scanner(System.in);
         String answer = in.nextLine().toLowerCase();
 
-        if(answer.equals("yes")) {
-            CountPoints();
-        } else if (answer.equals("y")) {
-            CountPoints();
+        if (answer.equals("yes") || answer.equals("y")) {
+            countPoints();
         } else {
             System.out.println("You got " + points + " points.");
         }
