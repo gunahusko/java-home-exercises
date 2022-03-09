@@ -1,13 +1,12 @@
 package io.codelex.loops.exercises;
-
 import java.util.Scanner;
 
 public class Exercise6 {
     public static void main(String[] args) {
-        FizzBuzz();
+        fizzBuzz();
     }
 
-    public static void FizzBuzz() {
+    private static void fizzBuzz() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter positive integer: ");
         int num = input.nextInt();

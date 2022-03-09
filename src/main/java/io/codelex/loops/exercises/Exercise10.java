@@ -1,13 +1,13 @@
 package io.codelex.loops.exercises;
-
 import java.util.Scanner;
 
 public class Exercise10 {
+
     public static void main(String[] args) {
-        NumberSquare();
+        numberSquare();
     }
 
-    public static void NumberSquare() {
+    private static void numberSquare() {
         Scanner in = new Scanner(System.in);
         System.out.print("Min? ");
         int min = in.nextInt();
@@ -15,12 +15,12 @@ public class Exercise10 {
         int max = in.nextInt();
 
         for(int i=0; i<max; i++) {
-            String line = "";
+            StringBuilder line = new StringBuilder();
                 for (int j=min; j<=max; j++) {
                     if (j+i <= max) {
-                        line += j+i;
+                        line.append(j + i);
                     } else {
-                        line += (j+i)-max;
+                        line.append((j + i) - max);
                     }
                 }
             System.out.println(line);

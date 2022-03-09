@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 
 public class RandomNumberPositions {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Integer[] integers = randomIntegers(20);

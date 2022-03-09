@@ -1,14 +1,13 @@
 package io.codelex.flowcontrol.exercises;
-
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Exercise5 {
     public static void main(String[] args) {
-        PhoneKeyPad();
+        phoneKeyPad();
     }
 
-    public static void PhoneKeyPad() {
+    private static void phoneKeyPad() {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter letters: ");
         String userText = in.nextLine().toLowerCase(Locale.ROOT);
