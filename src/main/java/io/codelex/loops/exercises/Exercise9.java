@@ -16,12 +16,10 @@ public class Exercise9 {
         int sum = 0;
         while (sum != num) {
             Random random = new Random();
-            int dice1 = random.nextInt(6);
-            int dice2 = random.nextInt(6);
-            if (dice1 >=1 && dice2 >= 1) {
+            int dice1 = random.nextInt(6) + 1;
+            int dice2 = random.nextInt(6) + 1;
                 sum = dice1 + dice2;
                 System.out.println(dice1 + " and " + dice2 + " = " + sum);
-            }
         }
     }
 }
