@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    static char[][] board = new char[3][3];
+    private static final char[][] BOARD = new char[3][3];
     static boolean won = true;
 
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class TicTacToe {
             System.out.print("'O', choose your location (column): ");
             int column = keyboard.nextInt();
 
-            board[row][column] = 'O';
+            BOARD[row][column] = 'O';
             displayBoard();
             checkWinner();
             if (!won) break;
@@ -29,7 +29,7 @@ public class TicTacToe {
             System.out.print("'X', choose your location (column): ");
             int column1 = keyboard.nextInt();
 
-            board[row1][column1] = 'X';
+            BOARD[row1][column1] = 'X';
             displayBoard();
             checkWinner();
             if (!won) break;
@@ -40,34 +40,34 @@ public class TicTacToe {
 
     public static void checkWinner() {
         if (
-               (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
-            || (board[2][0] == 'X' && board[1][1] == 'X' && board[0][2] == 'X')
-            || (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X')
-            || (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X')
-            || (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X')
-            || (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X')
-            || (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X')
-            || (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X')
+                   (BOARD[0][0] == 'X' && BOARD[1][1] == 'X' && BOARD[2][2] == 'X' )
+                || (BOARD[2][0] == 'X' && BOARD[1][1] == 'X' && BOARD[0][2] == 'X' )
+                || (BOARD[0][0] == 'X' && BOARD[1][0] == 'X' && BOARD[2][0] == 'X' )
+                || (BOARD[0][1] == 'X' && BOARD[1][1] == 'X' && BOARD[2][1] == 'X' )
+                || (BOARD[0][2] == 'X' && BOARD[1][2] == 'X' && BOARD[2][2] == 'X' )
+                || (BOARD[0][0] == 'X' && BOARD[0][1] == 'X' && BOARD[0][2] == 'X' )
+                || (BOARD[1][0] == 'X' && BOARD[1][1] == 'X' && BOARD[1][2] == 'X' )
+                || (BOARD[2][0] == 'X' && BOARD[2][1] == 'X' && BOARD[2][2] == 'X' )
         ) {
             won = false;
             System.out.println("'X' won!");
         } else if (
-               (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
-            || (board[2][0] == 'O' && board[1][1] == 'O' && board[0][2] == 'O')
-            || (board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O')
-            || (board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] == 'O')
-            || (board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O')
-            || (board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O')
-            || (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O')
-            || (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O')
+                (BOARD[0][0] == 'O' && BOARD[1][1] == 'O' && BOARD[2][2] == 'O' )
+                || (BOARD[2][0] == 'O' && BOARD[1][1] == 'O' && BOARD[0][2] == 'O' )
+                || (BOARD[0][0] == 'O' && BOARD[1][0] == 'O' && BOARD[2][0] == 'O' )
+                || (BOARD[0][1] == 'O' && BOARD[1][1] == 'O' && BOARD[2][1] == 'O' )
+                || (BOARD[0][2] == 'O' && BOARD[1][2] == 'O' && BOARD[2][2] == 'O' )
+                || (BOARD[0][0] == 'O' && BOARD[0][1] == 'O' && BOARD[0][2] == 'O' )
+                || (BOARD[1][0] == 'O' && BOARD[1][1] == 'O' && BOARD[1][2] == 'O' )
+                || (BOARD[2][0] == 'O' && BOARD[2][1] == 'O' && BOARD[2][2] == 'O' )
         ) {
             won = false;
             System.out.println("'O' won!");
         } else {
-            for (char[] a : board) {
+            for (char[] cell : BOARD) {
                 int count = 0;
-                for (int i = 0; i < board.length; i++) {
-                    if (a[i] != ' ') count++;
+                for (int i = 0; i < BOARD.length; i++) {
+                    if (cell[i] != ' ') count++;
                 }
                 if (count == 9) {
                     won = false;
@@ -81,16 +81,16 @@ public class TicTacToe {
         // fills up the board with blanks
         for (int r = 0; r < 3; r++)
             for (int c = 0; c < 3; c++)
-                board[r][c] = ' ';
+                BOARD[r][c] = ' ';
     }
 
     public static void displayBoard() {
         System.out.println();
-        System.out.println("  0  " + board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
+        System.out.println("  0  " + BOARD[0][0] + "|" + BOARD[0][1] + "|" + BOARD[0][2]);
         System.out.println("    --+-+--");
-        System.out.println("  1  " + board[1][0] + "|" + board[1][1] + "|" + board[1][2]);
+        System.out.println("  1  " + BOARD[1][0] + "|" + BOARD[1][1] + "|" + BOARD[1][2]);
         System.out.println("    --+-+--");
-        System.out.println("  2  " + board[2][0] + "|" + board[2][1] + "|" + board[2][2]);
+        System.out.println("  2  " + BOARD[2][0] + "|" + BOARD[2][1] + "|" + BOARD[2][2]);
         System.out.println("     0 1 2 ");
         System.out.println();
     }
