@@ -1,4 +1,5 @@
 package io.codelex.arrays.exercises;
+
 import java.util.Scanner;
 
 public class Exercise8 {
@@ -7,6 +8,7 @@ public class Exercise8 {
             "false", "true", "java", "return",
             "static", "public", "array", "void", "class"
     };
+    private static int moveCounter;
 
     public static void main(String[] args) {
         hangMan();
@@ -16,9 +18,10 @@ public class Exercise8 {
         String userGuess = "";
         String userMissed = "";
         String randomWord = WORDS[(int) (Math.random() * WORDS.length)];
+        moveCounter = randomWord.length() + 2;
 
-        int i=0;
-        while (i<randomWord.length()) {
+        int i = 0;
+        while (i < moveCounter) {
             printBoard(randomWord, userGuess, userMissed);
             Scanner in = new Scanner(System.in);
             String user = in.nextLine();
@@ -35,16 +38,15 @@ public class Exercise8 {
                 System.out.println();
                 System.out.print("Word: ");
 
-                for (char x : randomWord.toCharArray()) {
-                    System.out.print(x + " ");
+                for (char chars : randomWord.toCharArray()) {
+                    System.out.print(chars + " ");
                 }
 
                 System.out.println();
                 System.out.println("YOU GOT IT!");
                 break;
             }
-
-            i++;
+            moveCounter--;
         }
 
         if (!playerWon(randomWord, userGuess)) {
@@ -56,13 +58,19 @@ public class Exercise8 {
         Scanner userAnswer = new Scanner(System.in);
         String answer = userAnswer.nextLine();
 
-        if (answer.equals("again")) hangMan();
-        if (answer.equals("quit")) userAnswer.close();
+        if (answer.equals("again")) {
+            hangMan();
+        }
+        if (answer.equals("quit")) {
+            userAnswer.close();
+        }
     }
 
     public static void printBoard(String randomWord, String userGuess, String userMissed) {
         System.out.println();
         System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+        System.out.print("Number of moves: ");
+        System.out.println(moveCounter);
         System.out.print("Word: ");
         printWord(randomWord, userGuess);
         System.out.println("Misses: " + userMissed);
@@ -70,9 +78,9 @@ public class Exercise8 {
     }
 
     public static void printWord(String randomWord, String userGuess) {
-        for (char x : randomWord.toCharArray()) {
-            if (userGuess.toLowerCase().contains(String.valueOf(x).toLowerCase())) {
-                System.out.print(x + " ");
+        for (char chars : randomWord.toCharArray()) {
+            if (userGuess.toLowerCase().contains(String.valueOf(chars).toLowerCase())) {
+                System.out.print(chars + " ");
             } else {
                 System.out.print("_" + " ");
             }
@@ -82,8 +90,8 @@ public class Exercise8 {
 
     public static boolean playerWon(String randomWord, String userGuess) {
         boolean won = true;
-        for (char x : randomWord.toCharArray()) {
-            if (!userGuess.contains(String.valueOf(x))) {
+        for (char chars : randomWord.toCharArray()) {
+            if (!userGuess.contains(String.valueOf(chars))) {
                 won = false;
                 break;
             }
