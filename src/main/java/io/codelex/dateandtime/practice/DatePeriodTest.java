@@ -19,7 +19,7 @@ public class DatePeriodTest {
         DatePeriod secondPeriod = new DatePeriod(secondStartDate, secondEndDate);
 
         DatePeriod overlap = firstPeriod.intersection(secondPeriod);
-        System.out.println("Overlap " + overlap);
+        System.out.println("Intersection " + overlap);
     }
 
     private static LocalDate userInput(){
