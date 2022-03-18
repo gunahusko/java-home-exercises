@@ -20,6 +20,8 @@ public enum Runner {
             System.out.println(INTERMEDIATE);
         } else if (runTime >= BEGINNER.min && runTime <= BEGINNER.max) {
             System.out.println(BEGINNER);
+        } else {
+            System.out.println("null");
         }
     }
 }
