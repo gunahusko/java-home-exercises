@@ -10,7 +10,7 @@ public class Exercise9 {
         System.out.println("(" + p2.getX() + ", " + p2.getY() + ")");
     }
 
-    public static void swapPoints(Point p1, Point p2) {
+    private static void swapPoints(Point p1, Point p2) {
         int temporaryX = p1.getX();
         int temporaryY = p1.getY();
 

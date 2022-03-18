@@ -12,12 +12,15 @@ public class Odometer {
     }
 
     public void increaseMileage(FuelGauge gauge) {
-        for(int i = 0; i<=10; i++) {
-            this.mileage++;
-            if (this.mileage == 1000) this.mileage = 0;
+        while (gauge.getAmountOfFuel() > 0) {
+            for (int i = 0; i <= 10; i++) {
+                this.mileage++;
+                if (this.mileage == 1000) {
+                    this.mileage = 0;
+                }
+            }
+            gauge.fuelConsumption();
         }
-        gauge.fuelConsumption();
-        if (gauge.getAmountOfFuel() > 0) increaseMileage(gauge);
     }
 
     @Override

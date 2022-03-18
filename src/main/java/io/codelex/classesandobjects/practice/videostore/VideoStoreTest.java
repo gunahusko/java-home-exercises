@@ -1,8 +1,8 @@
 package io.codelex.classesandobjects.practice.videostore;
+
 import io.codelex.classesandobjects.exercises.Video;
 import io.codelex.classesandobjects.exercises.VideoStore;
 import java.util.Scanner;
-
 import static io.codelex.classesandobjects.exercises.VideoStore.printInStockInventory;
 
 public class VideoStoreTest {
@@ -65,13 +65,13 @@ public class VideoStoreTest {
 
         for (Video video : VideoStore.inStock) {
             if (video.checkOut(movieName)) {
-                if (video.getAvailable().equals(false)) {
+                if (!video.isAvailable()) {
                     System.out.println("Already rented. Please choose another.");
                     printInStockInventory();
                     System.out.println();
                     menu();
 
-                } else if (video.getAvailable().equals(true)) {
+                } else {
                     System.out.println(video);
                     System.out.println("Enter YES to rent or CANCEL ");
                     String answer = scanner.nextLine().toUpperCase();
@@ -94,7 +94,7 @@ public class VideoStoreTest {
         String movieName = scanner.nextLine().toLowerCase();
 
         for (Video video : VideoStore.inStock) {
-            if (video.checkOut(movieName) && video.getAvailable().equals(false)) {
+            if (video.checkOut(movieName) && !video.isAvailable()) {
                 System.out.println("Enter YES to return or CANCEL: ");
                 String answer = scanner.nextLine().toUpperCase();
 
@@ -105,7 +105,7 @@ public class VideoStoreTest {
                     scanner.nextLine(); // after nextInt clean terminal
 
                     video.setRating(rating);
-                    System.out.println("Thank you! " + video.getTITLE() + " Total rating: " + video.getRating());
+                    System.out.println("Thank you! " + video.getTitle() + " Total rating: " + video.getRating());
                     System.out.println();
                     menu();
                 } else {

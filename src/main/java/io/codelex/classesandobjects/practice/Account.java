@@ -2,11 +2,11 @@ package io.codelex.classesandobjects.practice;
 
 public class Account {
     private double balance;
-    private final String OWNER;
+    private final String owner;
 
     public Account(String owner, double balance) {
         this.balance = balance;
-        this.OWNER = owner;
+        this.owner = owner;
     }
 
     public void deposit(double amount) {
@@ -18,15 +18,15 @@ public class Account {
     }
 
     public double balance() {
-        return this.balance;
+        return balance;
     }
 
-    public String getOWNER() {
-        return OWNER;
+    public String getOwner() {
+        return owner;
     }
 
     @Override
     public String toString() {
-        return OWNER + " balance: " + balance;
+        return owner + " balance: " + balance;
     }
 }

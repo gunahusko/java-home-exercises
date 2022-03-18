@@ -1,6 +1,6 @@
 package io.codelex.classesandobjects.exercises;
 
-public class testingCarFillUp {
+public class TestingCarFillUp {
     public static void main(String[] args) {
 
         Car car = new Car(1000);

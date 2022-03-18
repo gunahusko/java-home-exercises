@@ -4,26 +4,27 @@ public class SavingsAccount {
     private double annualInterestRate;
     private double balance;
 
-    public SavingsAccount() {
+    public SavingsAccount(double amount) {
+        balance = amount;
     }
 
     public void withdrawal(double amount) {
-        this.balance -= amount;
+        balance -= amount;
     }
 
     public void deposit(double amount) {
-        this.balance += amount;
+        balance += amount;
     }
 
     public double monthlyInterest() {
-        double monthlyInterestRate = this.annualInterestRate / 100 / 12; // (ja šeit nedala ar 100 (% likme), tad ir kā uzdevumā - manuprāt, kļūda uzdevumā
-        double earned = this.balance * monthlyInterestRate;
-        this.balance += earned;
+        double monthlyInterestRate = annualInterestRate / 100 / 12;
+        double earned = balance * monthlyInterestRate;
+        balance += earned;
         return earned;
     }
 
     public double getBalance() {
-        return this.balance;
+        return balance;
     }
 
     public void setBalance(double balance) {

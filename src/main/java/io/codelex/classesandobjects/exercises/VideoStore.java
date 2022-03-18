@@ -7,7 +7,6 @@ public class VideoStore {
         for (int i = 0; i < inStock.length; i++) {
             if (inStock[i] == null) {
                 inStock[i] = new Video(movieName, rating);
-               // System.out.println(inStock[i]);
                 System.out.println("The video is added to store.");
                 System.out.println("Videos in stock: ");
                 printInStockInventory();
@@ -20,7 +19,7 @@ public class VideoStore {
         for (Video video : inStock) {
             if (video.checkOut(movieName)) {
                 video.setAvailable(false);
-                System.out.println("You rented " + video.getTITLE());
+                System.out.println("You rented " + video.getTitle());
                 printInStockInventory();
                 break;
             }
@@ -31,7 +30,7 @@ public class VideoStore {
         for (Video video : inStock) {
             if (video.checkOut(movieName)) {
                 video.setAvailable(true);
-                System.out.println(video.getTITLE() + " returned successfully.");
+                System.out.println(video.getTitle() + " returned successfully.");
                 break;
             }
         }

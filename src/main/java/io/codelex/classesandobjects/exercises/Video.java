@@ -1,20 +1,20 @@
 package io.codelex.classesandobjects.exercises;
 
 public class Video {
-    private final String TITLE;
+    private final String title;
     private Boolean available = true;
     private int rating;
 
     public Video(String title, int rating) {
-        this.TITLE = title;
+        this.title = title;
         this.rating = rating;
     }
 
     public boolean checkOut(String title){
-        return this.TITLE.toLowerCase().equals(title);
+        return this.title.toLowerCase().equals(title);
     }
 
-    public Boolean getAvailable() {
+    public Boolean isAvailable() {
         return available;
     }
 
@@ -28,8 +28,8 @@ public class Video {
         this.rating = (this.rating + rating) / countRatings;
     }
 
-    public String getTITLE() {
-        return TITLE;
+    public String getTitle() {
+        return title;
     }
 
     public int getRating() {
@@ -39,7 +39,7 @@ public class Video {
     @Override
     public String toString() {
         return "Video [" +
-                "title = '" + TITLE + '\'' +
+                "title = '" + title + '\'' +
                 ", available = " + available +
                 ", rating = " + rating +
                 ']';

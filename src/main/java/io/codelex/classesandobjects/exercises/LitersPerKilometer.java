@@ -19,11 +19,17 @@ public class LitersPerKilometer {
     }
 
     public static void printResult(Car car) {
-        System.out.printf( "Kilometers per liter are %.2f l/km", car.calculateConsumption());
+        System.out.printf("Kilometers per liter are %.2f l/km", car.calculateConsumption());
         System.out.println();
-        if (car.gasHog()) System.out.println("This is a gas hog!");
-        if (car.economyCar()) System.out.println("This is an economy car.");
-        if (!car.gasHog() && !car.economyCar()) System.out.println("This is a mid-range machine.");
+        if (car.gasHog()) {
+            System.out.println("This is a gas hog!");
+        }
+        if (car.economyCar()) {
+            System.out.println("This is an economy car.");
+        }
+        if (!car.gasHog() && !car.economyCar()) {
+            System.out.println("This is a mid-range machine.");
+        }
         System.out.println();
     }
 
