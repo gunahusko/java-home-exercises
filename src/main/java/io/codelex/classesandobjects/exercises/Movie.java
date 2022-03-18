@@ -1,44 +1,48 @@
 package io.codelex.classesandobjects.exercises;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Movie {
-    private final String TITLE;
-    private final String STUDIO;
-    private final String RATING; // (i.e. PG13, R, etc)
+    private final String title;
+    private final String studio;
+    private final String rating; // (i.e. PG13, R, etc)
 
     public Movie(String title, String studio, String rating) {
-        this.TITLE = title;
-        this.STUDIO = studio;
-        this.RATING = rating;
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
     }
 
     public Movie(String title, String studio) {
-        this.TITLE = title;
-        this.STUDIO = studio;
-        this.RATING = "PG";
+        this.title = title;
+        this.studio = studio;
+        this.rating = "PG";
     }
 
-    public String getRATING() {
-        return this.RATING;
+    public String getRating() {
+        return rating;
     }
 
     public static void getPG(Movie[] movies) {
-        Movie[] pgMovies = new Movie[1];
+        List<Movie> pgMovies = new ArrayList<>();
         for (Movie movie : movies) {
-            if (movie.getRATING().equals("PG")) {
-                pgMovies[0] = movie;
+            if (movie.getRating().equals("PG")) {
+                pgMovies.add(movie);
             }
         }
-        System.out.println(Arrays.toString(pgMovies));
+        for (Movie movie : pgMovies) {
+            System.out.println(movie);
+        }
+
     }
 
     @Override
     public String toString() {
         return "Movie{" +
-                "title='" + TITLE + '\'' +
-                ", studio='" + STUDIO + '\'' +
-                ", rating='" + RATING + '\'' +
+                "title='" + title + '\'' +
+                ", studio='" + studio + '\'' +
+                ", rating='" + rating + '\'' +
                 '}';
     }
 }

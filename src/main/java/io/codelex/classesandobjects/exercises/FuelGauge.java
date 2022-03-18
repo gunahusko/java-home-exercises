@@ -1,6 +1,7 @@
 package io.codelex.classesandobjects.exercises;
 
 public class FuelGauge {
+    private static final int FUEL_TANK = 70;
     private int amountOfFuel;  // in liters
 
     public FuelGauge(int amountOfFuel) {
@@ -12,17 +13,19 @@ public class FuelGauge {
     }
 
     public void reportAmountOfFuel() {
-        System.out.println("Current amount of fuel: " + this.amountOfFuel + "l");
+        System.out.println("Current amount of fuel: " + amountOfFuel + "l");
     }
 
     public void fillUp() {
-        while (this.amountOfFuel < 70) {
-            this.amountOfFuel++;
+        while (amountOfFuel < FUEL_TANK) {
+            amountOfFuel++;
         }
     }
 
     public void fuelConsumption() {
-        if (this.amountOfFuel > 0) this.amountOfFuel--;
+        if (amountOfFuel > 0) {
+            amountOfFuel--;
+        }
     }
 
     @Override
