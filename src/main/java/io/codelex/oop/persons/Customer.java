@@ -1,12 +1,12 @@
 package io.codelex.oop.persons;
 
 public class Customer extends Person{
-    private final String CUSTOMER_ID;
+    private final String customerId;
     public int purchaseCount;
 
     public Customer(String firstName, String lastName, String id, int age, String customerId, int purchaseCount) {
         super(firstName, lastName, id, age);
-        this.CUSTOMER_ID = customerId;
+        this.customerId = customerId;
         this.purchaseCount = purchaseCount;
     }
 
@@ -20,6 +20,6 @@ public class Customer extends Person{
 
     @Override
     public String getInfo() {
-        return firstName + " " + lastName + " " + CUSTOMER_ID + " (" + purchaseCount + " purchases)";
+        return firstName + " " + lastName + " " + customerId + " (" + purchaseCount + " purchases)";
     }
 }

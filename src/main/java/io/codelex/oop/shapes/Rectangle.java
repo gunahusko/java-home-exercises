@@ -1,23 +1,23 @@
 package io.codelex.oop.shapes;
 
 public class Rectangle extends Shape{
-    private final int WIDTH;
-    private final int HEIGHT;
+    private final int width;
+    private final int height;
 
     public Rectangle(int width, int height) {
         super(4);
-        this.WIDTH = width;
-        this.HEIGHT = height;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
     public double getArea() {
-        return WIDTH * HEIGHT;
+        return width * height;
     }
 
     @Override
     public double getPerimeter() {
-        return (WIDTH + HEIGHT) * 2;
+        return (width + height) * 2;
     }
 
 }

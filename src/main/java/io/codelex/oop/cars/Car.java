@@ -5,29 +5,29 @@ import java.util.List;
 import java.util.Objects;
 
 public class Car{
-    private final String NAME;
-    private final String MODEL;
+    private final String name;
+    private final String model;
     private int price;
-    private final int YEAR;
-    private final EngineType ENGINE_TYPE;
-    private List<Manufacturer> manufacturer;
+    private final int year;
+    private final EngineType engineType;
+    private final List<Manufacturer> manufacturer;
 
     public Car(String name, String model, int price, int year, EngineType engineType, Manufacturer manufacturer) {
-        this.NAME = name;
-        this.MODEL = model;
+        this.name = name;
+        this.model = model;
         this.price = price;
-        this.YEAR = year;
-        this.ENGINE_TYPE = engineType;
+        this.year = year;
+        this.engineType = engineType;
         this.manufacturer = new ArrayList<>();
         this.manufacturer.add(manufacturer);
     }
 
-    public String getNAME() {
-        return NAME;
+    public String getName() {
+        return name;
     }
 
-    public String getMODEL() {
-        return MODEL;
+    public String getModel() {
+        return model;
     }
 
     public int getPrice() {
@@ -38,8 +38,8 @@ public class Car{
         this.price = price;
     }
 
-    public int getYEAR() {
-        return YEAR;
+    public int getYear() {
+        return year;
     }
 
     public List<Manufacturer> getManufacturer() {
@@ -50,8 +50,8 @@ public class Car{
         this.manufacturer.add(manufacturer);
     }
 
-    public EngineType getENGINE_TYPE() {
-        return ENGINE_TYPE;
+    public EngineType getEngineType() {
+        return engineType;
     }
 
     @Override
@@ -64,31 +64,31 @@ public class Car{
         }
         Car car = (Car) o;
         return getPrice() == car.getPrice() &&
-               getYEAR() == car.getYEAR() &&
-               getNAME().equals(car.getNAME()) &&
-               getMODEL().equals(car.getMODEL()) &&
+               getYear() == car.getYear() &&
+               getName().equals(car.getName()) &&
+               getModel().equals(car.getModel()) &&
                getManufacturer().equals(car.getManufacturer()) &&
-               getENGINE_TYPE() == car.getENGINE_TYPE();
+               getEngineType() == car.getEngineType();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNAME(),
-                       getMODEL(),
+        return Objects.hash(getName(),
+                       getModel(),
                        getPrice(),
-                       getYEAR(),
+                       getYear(),
                        getManufacturer(),
-                       getENGINE_TYPE());
+                       getEngineType());
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "name = '" + NAME + '\'' +
-                ", model = '" + MODEL + '\'' +
+                "name = '" + name + '\'' +
+                ", model = '" + model + '\'' +
                 ", price = " + price +
-                ", year = " + YEAR +
-                ", engineType = " + ENGINE_TYPE +
+                ", year = " + year +
+                ", engineType = " + engineType +
                 ", manufacturer = " + manufacturer +
                 '}';
     }

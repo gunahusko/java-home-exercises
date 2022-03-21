@@ -3,42 +3,26 @@ package io.codelex.oop.cars;
 import java.util.Objects;
 
 public class Manufacturer{
-    private String NAME;
-    private int YEAR;
-    private String COUNTRY;
+    private final String name;
+    private final int year;
+    private final String country;
 
-    public Manufacturer(String NAME, int YEAR, String COUNTRY) {
-        this.NAME = NAME;
-        this.YEAR = YEAR;
-        this.COUNTRY = COUNTRY;
+    public Manufacturer(String name, int year, String country) {
+        this.name = name;
+        this.year = year;
+        this.country = country;
     }
 
-    public Manufacturer(String name) {
-        this.NAME = name;
+    public String getName() {
+        return name;
     }
 
-    public String getNAME() {
-        return NAME;
+    public int getYear() {
+        return year;
     }
 
-    public void setNAME(String name) {
-        this.NAME = name;
-    }
-
-    public int getYEAR() {
-        return YEAR;
-    }
-
-    public void setYEAR(int year) {
-        this.YEAR = year;
-    }
-
-    public String getCOUNTRY() {
-        return COUNTRY;
-    }
-
-    public void setCOUNTRY(String country) {
-        this.COUNTRY = country;
+    public String getCountry() {
+        return country;
     }
 
     @Override
@@ -50,20 +34,20 @@ public class Manufacturer{
             return false;
         }
         Manufacturer that = (Manufacturer) o;
-        return getYEAR() == that.getYEAR() && getNAME().equals(that.getNAME()) && getCOUNTRY().equals(that.getCOUNTRY());
+        return getYear() == that.getYear() && getName().equals(that.getName()) && getCountry().equals(that.getCountry());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNAME(), getYEAR(), getCOUNTRY());
+        return Objects.hash(getName(), getYear(), getCountry());
     }
 
     @Override
     public String toString() {
         return "Manufacturer{" +
-                "name = '" + NAME + '\'' +
-                ", established = " + YEAR +
-                ", country = '" + COUNTRY + '\'' +
+                "name = '" + name + '\'' +
+                ", established = " + year +
+                ", country = '" + country + '\'' +
                 '}';
     }
 }

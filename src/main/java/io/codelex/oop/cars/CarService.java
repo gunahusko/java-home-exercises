@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarService {
-    private List<Car> carsList = new ArrayList<>();
+    private final List<Car> carsList = new ArrayList<>();
 
     public CarService() {
     }
@@ -14,7 +14,7 @@ public class CarService {
     }
 
     public void removeCar(String name, String model) {
-        carsList.removeIf(car -> car.getNAME().equals(name) && car.getMODEL().equals(model));
+        carsList.removeIf(car -> car.getName().equals(name) && car.getModel().equals(model));
     }
 
     public void listOfCars() {
@@ -28,7 +28,7 @@ public class CarService {
     public void findCarByEngine(EngineType engineType) {
         System.out.println("Car with a " + engineType + " engine type:");
         for (Car car : carsList) {
-            if (car.getENGINE_TYPE() == EngineType.V12) {
+            if (car.getEngineType() == EngineType.V12) {
                 System.out.println(car);
             }
         }
@@ -38,7 +38,7 @@ public class CarService {
     public void carsProducedBefore(int year) {
         System.out.println("Cars produced before: " + year);
         for (Car car : carsList) {
-            if (car.getYEAR() < year) {
+            if (car.getYear() < year) {
                 System.out.println(car);
             }
         }
@@ -81,13 +81,13 @@ public class CarService {
 
     public void sortCarsByPrice(int price) {
         System.out.println("Sorted cars from price: " + price);
-        List<Car> sortedCarsByPrice = new ArrayList<>();
+        List<Car> carsByPrice = new ArrayList<>();
         for (Car car : carsList) {
             if (car.getPrice() <= price) {
-                sortedCarsByPrice.add(car);
+                carsByPrice.add(car);
             }
         }
-        sortedCarsByPrice.sort((car1, car2) -> {
+        carsByPrice.sort((car1, car2) -> {
             int temp = 0;
             if (car1.getPrice() > car2.getPrice()) {
                 temp = car1.getPrice();
@@ -95,7 +95,7 @@ public class CarService {
             return temp;
         });
 
-        for (Car car : sortedCarsByPrice) {
+        for (Car car : carsByPrice) {
             System.out.println(car);
         }
         System.out.println("_______________________________________");
@@ -104,7 +104,7 @@ public class CarService {
     public void checkIsCarOnTheList(String name, String model) {
         Car findCar = null;
         for (Car car : carsList) {
-            if (car.getNAME().equals(name) && car.getMODEL().equals(model)) {
+            if (car.getName().equals(name) && car.getModel().equals(model)) {
                 findCar = car;
                 break;
             }
@@ -122,7 +122,7 @@ public class CarService {
         List<Car> listCarsByManufacturer = new ArrayList<>();
         for (Car car : carsList) {
             for (Manufacturer manufacturer : car.getManufacturer()) {
-                if (manufacturer.getNAME().equals(manufacturerName)) {
+                if (manufacturer.getName().equals(manufacturerName)) {
                     listCarsByManufacturer.add(car);
                 }
             }
@@ -138,8 +138,8 @@ public class CarService {
         List<Car> listCarsByYearSameManufacturer = new ArrayList<>();
         for (Car car : carsList) {
             for (Manufacturer manufacturer : car.getManufacturer()) {
-                if (manufacturer.getNAME().equals(manufacturerName)) {
-                    if (car.getYEAR() == year) {
+                if (manufacturer.getName().equals(manufacturerName)) {
+                    if (car.getYear() == year) {
                         listCarsByYearSameManufacturer.add(car);
                     }
                 }

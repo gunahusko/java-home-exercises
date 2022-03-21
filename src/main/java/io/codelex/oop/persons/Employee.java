@@ -4,22 +4,22 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Employee extends Person{
-    private final String POSITION;
-    private final LocalDate DATE;
+    private final String position;
+    private final LocalDate date;
 
     public Employee(String firstName, String lastName, String id, int age, String position, LocalDate date) {
         super(firstName, lastName, id, age);
-        this.POSITION = position;
-        this.DATE = date;
+        this.position = position;
+        this.date = date;
     }
 
     public int getWorkExperience() {
-        Period period = Period.between(LocalDate.now(), DATE);
+        Period period = Period.between(LocalDate.now(), date);
         return Math.abs(period.getYears());
     }
 
     @Override
     public String getInfo() {
-        return  POSITION + " " + firstName + " " + lastName + " works since " + DATE + " (" + getWorkExperience() + " year experience)";
+        return  position + " " + firstName + " " + lastName + " works since " + date + " (" + getWorkExperience() + " year experience)";
     }
 }

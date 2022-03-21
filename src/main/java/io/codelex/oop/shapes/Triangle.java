@@ -1,22 +1,22 @@
 package io.codelex.oop.shapes;
 
 public class Triangle extends Shape{
-    private final int WIDTH;
-    private final int HEIGHT;
+    private final int width;
+    private final int height;
 
     public Triangle(int width, int height) {
         super(3);
-        this.WIDTH = width;
-        this.HEIGHT = height;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
     public double getArea() {
-        return (WIDTH * HEIGHT) / 2.0;
+        return (width * height) / 2.0;
     }
 
     @Override
     public double getPerimeter() {
-        return WIDTH + HEIGHT + Math.sqrt(Math.pow(WIDTH, 2) + Math.pow(HEIGHT, 2));
+        return width + height + Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
     }
 }

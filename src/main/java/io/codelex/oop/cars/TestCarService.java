@@ -14,8 +14,8 @@ public class TestCarService {
         autoService.addCar(new Car("Volkswagen", "ID.3", 33030, 2021, EngineType.MAGNET_AC, new Manufacturer("Volkswagen Group", 1937, "Germany")));
 
         Car carVaz = new Car("Жигули", "ВАЗ-2101", 500, 1970, EngineType.V2, new Manufacturer("Volga Automobile Factory", 1966, "Russia"));
-        carVaz.addManufacturer(new Manufacturer("Made by Dad"));
-        carVaz.addManufacturer(new Manufacturer("Neighborhood association"));
+        carVaz.addManufacturer(new Manufacturer("Made by Dad", 1980, "Latvia"));
+        carVaz.addManufacturer(new Manufacturer("Neighborhood association", 1980, "Latvia"));
         autoService.addCar(carVaz);
 
         // 2. removing a car from the list
