@@ -6,6 +6,7 @@ import java.time.Period;
 import java.util.Scanner;
 
 public class MyLocalDate {
+    private static final int WORKING_HOURS = 8;
 
     public static void main(String[] args) {
         System.out.println("Enter two dates to calculate" +
@@ -35,20 +36,22 @@ public class MyLocalDate {
     }
 
     private static void calculateWorkingHours(LocalDate startDate, LocalDate endDate) {
-        int workingHours = 8;
-
         Period period = Period.between(startDate, endDate);
-        int days = Math.abs(period.getDays()-1);
+        int days = Math.abs(period.getDays() - 1);
 
-        for (int i=0; i<days; i++) {
+        for (int i = 0; i < days; i++) {
             LocalDate between = startDate.plusDays(1);
-                if (between.getDayOfWeek() == DayOfWeek.SATURDAY || between.getDayOfWeek() == DayOfWeek.SUNDAY) {
-                    days--;
-                }
+            if(isWeekend(between)) {
+                days--;
+            }
         }
 
-        int totalWorkingHours = days * workingHours;
+        int totalWorkingHours = days * WORKING_HOURS;
         System.out.println(totalWorkingHours);
+    }
+
+    private static boolean isWeekend(LocalDate between) {
+        return between.getDayOfWeek() == DayOfWeek.SATURDAY || between.getDayOfWeek() == DayOfWeek.SUNDAY;
     }
 }
 

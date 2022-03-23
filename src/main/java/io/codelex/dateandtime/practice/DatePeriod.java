@@ -12,77 +12,56 @@ public class DatePeriod {
     }
 
     public DatePeriod intersection(DatePeriod secondDate) {
-        if (startDate.isBefore(secondDate.startDate) &&
-            endDate.isAfter(secondDate.startDate) &&
-            endDate.isBefore(secondDate.endDate)) {
-            return _1overlapStartOf2(secondDate);
+        if (firstOverlapStartOf2(secondDate)) {
+            return new DatePeriod(secondDate.startDate, endDate);
 
-        } else if (startDate.isAfter(secondDate.startDate) &&
-                   startDate.isBefore(secondDate.endDate) &&
-                   endDate.isAfter(secondDate.endDate)) {
-                   return _1overlapEndOf2(secondDate);
+        } else if (firstOverlapEndOf2(secondDate)) {
+            return new DatePeriod(startDate, secondDate.endDate);
 
-        } else if (startDate.isBefore(secondDate.startDate) &&
-                   endDate.isAfter(secondDate.endDate)) {
-                   return secondStartSecondEnd(secondDate);
+        } else if (overlapAllOfSecondDatePeriod(secondDate)) {
+            return new DatePeriod(secondDate.startDate, secondDate.endDate);
 
-        } else if (startDate.isAfter(secondDate.startDate) &&
-                   endDate.isBefore(secondDate.endDate)) {
-                   return thisStartThisEnd();
+        } else if (overlapAllOfFirstDatePeriod(secondDate)) {
+            return new DatePeriod(startDate, endDate);
 
-        } else if (endDate.isEqual(secondDate.startDate)) {
-                   return equal1EndWith2Start(secondDate);
+        } else if (equalOneDay1EndWith2Start(secondDate)) {
+            return new DatePeriod(endDate, secondDate.startDate);
 
-        } else if (startDate.isEqual(secondDate.endDate)) {
-                   return equal2EndWith1Start(secondDate);
-
-        } else if (startDate.isEqual(secondDate.startDate) &&
-                   endDate.isBefore(secondDate.endDate)) {
-                   return thisStartThisEnd();
-
-        } else if (startDate.isAfter(secondDate.startDate) &&
-                   endDate.isEqual(secondDate.endDate)) {
-                   return thisStartThisEnd();
-
-        } else if (startDate.isEqual(secondDate.startDate) &&
-                   endDate.isEqual(secondDate.endDate)) {
-                   return thisStartThisEnd();
-
-        } else if (startDate.isEqual(secondDate.startDate) &&
-                   endDate.isAfter(secondDate.endDate)) {
-                   return secondStartSecondEnd(secondDate);
-
-        } else if (startDate.isBefore(secondDate.startDate) &&
-                   endDate.isEqual(secondDate.endDate)) {
-                   return secondStartSecondEnd(secondDate);
+        } else if (equalOneDay1StartWith2End(secondDate)) {
+            return new DatePeriod(secondDate.endDate, startDate);
 
         } else {
             return null;
         }
     }
 
-    private DatePeriod _1overlapStartOf2(DatePeriod secondDate) {
-        return new DatePeriod(secondDate.startDate, endDate);
+    private boolean firstOverlapStartOf2(DatePeriod secondDate) {
+        return (startDate.isBefore(secondDate.startDate) && endDate.isAfter(secondDate.startDate) && endDate.isBefore(secondDate.endDate));
     }
 
-    private DatePeriod _1overlapEndOf2(DatePeriod secondDate) {
-        return new DatePeriod(startDate, secondDate.endDate);
+    private boolean firstOverlapEndOf2(DatePeriod secondDate) {
+        return (startDate.isAfter(secondDate.startDate) && startDate.isBefore(secondDate.endDate) && endDate.isAfter(secondDate.endDate));
     }
 
-    private DatePeriod secondStartSecondEnd(DatePeriod secondDate) {
-        return new DatePeriod(secondDate.startDate, secondDate.endDate);
+    private boolean overlapAllOfSecondDatePeriod(DatePeriod secondDate) {
+        return (startDate.isBefore(secondDate.startDate) && endDate.isAfter(secondDate.endDate))
+                || (startDate.isEqual(secondDate.startDate) && endDate.isAfter(secondDate.endDate))
+                || (startDate.isBefore(secondDate.startDate) && endDate.isEqual(secondDate.endDate));
     }
 
-    private DatePeriod thisStartThisEnd() {
-        return new DatePeriod(startDate, endDate);
+    private boolean overlapAllOfFirstDatePeriod(DatePeriod secondDate) {
+        return (startDate.isAfter(secondDate.startDate) && endDate.isBefore(secondDate.endDate))
+                || (startDate.isEqual(secondDate.startDate) && endDate.isBefore(secondDate.endDate))
+                || (startDate.isAfter(secondDate.startDate) && endDate.isEqual(secondDate.endDate))
+                || (startDate.isEqual(secondDate.startDate) && endDate.isEqual(secondDate.endDate));
     }
 
-    private DatePeriod equal1EndWith2Start(DatePeriod secondDate) {
-        return new DatePeriod(endDate, secondDate.startDate);
+    private boolean equalOneDay1EndWith2Start(DatePeriod secondDate) {
+        return (endDate.isEqual(secondDate.startDate));
     }
 
-    private DatePeriod equal2EndWith1Start(DatePeriod secondDate) {
-        return new DatePeriod(secondDate.endDate, startDate);
+    private boolean equalOneDay1StartWith2End(DatePeriod secondDate) {
+        return (startDate.isEqual(secondDate.endDate));
     }
 
     @Override
