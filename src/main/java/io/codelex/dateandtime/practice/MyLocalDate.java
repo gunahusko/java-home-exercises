@@ -9,8 +9,7 @@ public class MyLocalDate {
     private static final int WORKING_HOURS = 8;
 
     public static void main(String[] args) {
-        System.out.println("Enter two dates to calculate" +
-                " how many hours employee worked in that period.");
+        System.out.println("Enter two dates to calculate how many hours employee worked in that period.");
 
         System.out.println("Enter first date (from): ");
         LocalDate startDate = userEnters();
@@ -41,7 +40,7 @@ public class MyLocalDate {
 
         for (int i = 0; i < days; i++) {
             LocalDate between = startDate.plusDays(1);
-            if(isWeekend(between)) {
+            if (isWeekend(between)) {
                 days--;
             }
         }
