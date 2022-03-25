@@ -22,7 +22,7 @@ public class Exercise1 {
         ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(array));
         System.out.printf("%-10s %s\n", "ArrayList:", arrayList);
 
-        HashSet<String> hashSet = new HashSet<String>(Arrays.asList(array));
+        HashSet<String> hashSet = new HashSet<>(Arrays.asList(array));
         System.out.printf("%-10s %s\n", "HashSet:", hashSet);
 
         HashMap<String, String> hashMap = new HashMap<>();
