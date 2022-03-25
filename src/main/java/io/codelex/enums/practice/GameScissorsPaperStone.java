@@ -1,6 +1,5 @@
 package io.codelex.enums.practice;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class GameScissorsPaperStone {
@@ -52,7 +51,8 @@ public class GameScissorsPaperStone {
     }
 
     private static void computerTurn() {
-        System.out.print("\tMy turn: " + randomChoice());
+        computerChoice = ScissorsPaperStone.randomMove();
+        System.out.print("\tMy turn: " + computerChoice);
         System.out.println();
 
         resultOfWinner();
@@ -60,10 +60,6 @@ public class GameScissorsPaperStone {
 
         System.out.println();
         beginGame();
-    }
-
-    private static ScissorsPaperStone randomChoice() {
-        return ScissorsPaperStone.class.getEnumConstants()[new Random().nextInt(ScissorsPaperStone.class.getEnumConstants().length)];
     }
 
     private static void resultOfWinner() {
