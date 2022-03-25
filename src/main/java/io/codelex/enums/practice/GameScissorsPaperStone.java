@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameScissorsPaperStone {
-    static int countTrials = 0;
-    static int computerWon = 0;
-    static int youWon = 0;
-    static ScissorsPaperStone yourChoice;
-    static ScissorsPaperStone computerChoice;
+    private static int countTrials = 0;
+    private static int computerWon = 0;
+    private static int youWon = 0;
+    private static ScissorsPaperStone yourChoice;
+    private static ScissorsPaperStone computerChoice;
 
     public static void main(String[] args) {
         System.out.println("Let us begin...");
@@ -29,8 +29,8 @@ public class GameScissorsPaperStone {
             case "q":
                 System.out.println();
                 System.out.printf("Number of trials: %d\n", countTrials);
-                System.out.printf("I won %d(%.2f%s). ", computerWon, (double)(computerWon * 100 / countTrials), "%");
-                System.out.printf("You won %d(%.2f%s).\n", youWon, (double)(youWon * 100 / countTrials), "%");
+                System.out.printf("I won %d(%.2f%s). ", computerWon, (double) (computerWon * 100 / countTrials), "%");
+                System.out.printf("You won %d(%.2f%s).\n", youWon, (double) (youWon * 100 / countTrials), "%");
                 System.out.println("Bye!");
                 break;
             case "s":
@@ -63,8 +63,7 @@ public class GameScissorsPaperStone {
     }
 
     private static ScissorsPaperStone randomChoice() {
-        computerChoice = ScissorsPaperStone.class.getEnumConstants()[new Random().nextInt(ScissorsPaperStone.class.getEnumConstants().length)];
-        return computerChoice;
+        return ScissorsPaperStone.class.getEnumConstants()[new Random().nextInt(ScissorsPaperStone.class.getEnumConstants().length)];
     }
 
     private static void resultOfWinner() {
@@ -75,17 +74,17 @@ public class GameScissorsPaperStone {
         if (yourChoice.equals(ScissorsPaperStone.SCISSORS) && computerChoice.equals(ScissorsPaperStone.STONE)) {
             System.out.println("\tStone breaks scissors, I won!");
             computerWon++;
-        } else if(yourChoice.equals(ScissorsPaperStone.PAPER) && computerChoice.equals(ScissorsPaperStone.SCISSORS)) {
+        } else if (yourChoice.equals(ScissorsPaperStone.PAPER) && computerChoice.equals(ScissorsPaperStone.SCISSORS)) {
             System.out.println("\tScissors cuts paper, I won!");
             computerWon++;
-        } else if(yourChoice.equals(ScissorsPaperStone.STONE) && computerChoice.equals(ScissorsPaperStone.PAPER)) {
+        } else if (yourChoice.equals(ScissorsPaperStone.STONE) && computerChoice.equals(ScissorsPaperStone.PAPER)) {
             System.out.println("\tPaper wrap stone, I won!");
             computerWon++;
         }
 
-        if ((yourChoice.equals(ScissorsPaperStone.SCISSORS) && computerChoice.equals(ScissorsPaperStone.PAPER)) ||
-            (yourChoice.equals(ScissorsPaperStone.PAPER) && computerChoice.equals(ScissorsPaperStone.STONE)) ||
-            (yourChoice.equals(ScissorsPaperStone.STONE) && computerChoice.equals(ScissorsPaperStone.SCISSORS))) {
+        if ((yourChoice.equals(ScissorsPaperStone.SCISSORS) && computerChoice.equals(ScissorsPaperStone.PAPER))
+                || (yourChoice.equals(ScissorsPaperStone.PAPER) && computerChoice.equals(ScissorsPaperStone.STONE))
+                || (yourChoice.equals(ScissorsPaperStone.STONE) && computerChoice.equals(ScissorsPaperStone.SCISSORS))) {
             System.out.println("\tYou won!");
             youWon++;
         }
