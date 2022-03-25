@@ -1,21 +1,17 @@
 package io.codelex.enums.practice;
 
-import java.util.EnumMap;
-
 public enum CardinalPoints {
-    NORTH("North","up", 0),
-    SOUTH("South","down", 1),
-    EAST("East","right", 2),
-    WEST("West","left", 3);
+    NORTH("North","up"),
+    SOUTH("South","down"),
+    EAST("East","right"),
+    WEST("West","left");
 
     private final String name;
     private final String direction;
-    private final int point;
 
-    CardinalPoints(String name, String direction, int point) {
+    CardinalPoints(String name, String direction) {
         this.name = name;
         this.direction = direction;
-        this.point = point;
     }
 
     public static void printUot(int point) {
@@ -37,6 +33,6 @@ public enum CardinalPoints {
 
     @Override
     public String toString() {
-        return name + ":" + direction + ":" + point;
+        return name + ":" + direction + ":" + ordinal();
     }
 }
