@@ -13,7 +13,7 @@ public class Histogram {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
         final String scores = fileContent();
-        System.out.println(scores);
+        printHistogram(scores);
     }
 
     private static String fileContent() throws URISyntaxException, IOException {
@@ -21,5 +21,59 @@ public class Histogram {
         return Files.readAllLines(path, charset).stream()
                 .findFirst()
                 .orElseThrow(IllegalStateException::new);
+    }
+
+    private static void printHistogram(String scores) {
+        String[] splitScores = scores.split(" ");
+
+        StringBuilder from00to09 = new StringBuilder();
+        StringBuilder from10to19 = new StringBuilder();
+        StringBuilder from20to29 = new StringBuilder();
+        StringBuilder from30to39 = new StringBuilder();
+        StringBuilder from40to49 = new StringBuilder();
+        StringBuilder from50to59 = new StringBuilder();
+        StringBuilder from60to69 = new StringBuilder();
+        StringBuilder from70to79 = new StringBuilder();
+        StringBuilder from80to89 = new StringBuilder();
+        StringBuilder from90to99 = new StringBuilder();
+        StringBuilder from100 = new StringBuilder();
+
+        for (String number : splitScores) {
+            if (Integer.parseInt(number) >= 0 && Integer.parseInt(number) <= 9) {
+                from00to09.append("*");
+            } else if (Integer.parseInt(number) >= 10 && Integer.parseInt(number) <= 19) {
+                from10to19.append("*");
+            } else if (Integer.parseInt(number) >= 20 && Integer.parseInt(number) <= 29) {
+                from20to29.append("*");
+            } else if (Integer.parseInt(number) >= 30 && Integer.parseInt(number) <= 39) {
+                from30to39.append("*");
+            } else if (Integer.parseInt(number) >= 40 && Integer.parseInt(number) <= 49) {
+                from40to49.append("*");
+            } else if (Integer.parseInt(number) >= 50 && Integer.parseInt(number) <= 59) {
+                from50to59.append("*");
+            } else if (Integer.parseInt(number) >= 60 && Integer.parseInt(number) <= 69) {
+                from60to69.append("*");
+            } else if (Integer.parseInt(number) >= 70 && Integer.parseInt(number) <= 79) {
+                from70to79.append("*");
+            } else if (Integer.parseInt(number) >= 80 && Integer.parseInt(number) <= 89) {
+                from80to89.append("*");
+            } else if (Integer.parseInt(number) >= 90 && Integer.parseInt(number) <= 99) {
+                from90to99.append("*");
+            } else if (Integer.parseInt(number) >= 100) {
+                from100.append("*");
+            }
+        }
+
+        System.out.println("00-09: " + from00to09);
+        System.out.println("10-19: " + from10to19);
+        System.out.println("20-29: " + from20to29);
+        System.out.println("30-39: " + from30to39);
+        System.out.println("40-49: " + from40to49);
+        System.out.println("50-59: " + from50to59);
+        System.out.println("60-69: " + from60to69);
+        System.out.println("70-79: " + from70to79);
+        System.out.println("80-89: " + from80to89);
+        System.out.println("90-99: " + from90to99);
+        System.out.println("100: " + from100);
     }
 }
