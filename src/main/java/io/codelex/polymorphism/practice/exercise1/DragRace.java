@@ -1,5 +1,8 @@
 package io.codelex.polymorphism.practice.exercise1;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Take a look at the cars in this package.
  * 1. Extract common behaviour to an interface called Car, and use it in the all classes.
@@ -13,6 +16,27 @@ package io.codelex.polymorphism.practice.exercise1;
 public class DragRace {
 
     public static void main(String[] args) {
+        Audi audi = new Audi();
+        Bmw bmw = new Bmw();
+        Lexus lexus = new Lexus();
+        Mazda mazda = new Mazda();
+        Tesla tesla = new Tesla();
+        Toyota toyota = new Toyota();
+
+        List<Object> cars = Arrays.asList(audi, bmw, lexus, mazda, tesla, toyota);
+
+        for (Object car : cars) {
+
+        }
+
+        for (int i=0; i<10; i++) {
+            for (int j=0; j<cars.size(); j++) {
+                cars.get(j);
+            }
+        }
+
+
+
 
     }
 }

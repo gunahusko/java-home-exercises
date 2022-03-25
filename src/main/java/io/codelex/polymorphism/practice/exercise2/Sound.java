@@ -1,5 +1,5 @@
 package io.codelex.polymorphism.practice.exercise2;
 
-interface Sound {
-    void playSound();
+public interface Sound {
+    public abstract void playSound();
 }
