@@ -25,18 +25,85 @@ public class DragRace {
 
         List<Object> cars = Arrays.asList(audi, bmw, lexus, mazda, tesla, toyota);
 
-        for (Object car : cars) {
+        speedUpCars(cars);
+        checkFastestCar(cars);
+    }
 
-        }
+    private static void speedUpCars(List<Object> cars) {
+        for (int i = 0; i < 10; i++) {
+            for (Object car : cars) {
+                if (car instanceof Audi) {
+                    ((Audi) car).speedUp();
+                } else if (car instanceof Bmw) {
+                    ((Bmw) car).speedUp();
+                } else if (car instanceof Lexus) {
+                    ((Lexus) car).speedUp();
+                } else if (car instanceof Mazda) {
+                    ((Mazda) car).speedUp();
+                } else if (car instanceof Tesla) {
+                    ((Tesla) car).speedUp();
+                } else if (car instanceof Toyota) {
+                    ((Toyota) car).speedUp();
+                }
 
-        for (int i=0; i<10; i++) {
-            for (int j=0; j<cars.size(); j++) {
-                cars.get(j);
+                if (i == 3) {
+                    if (car instanceof Lexus) {
+                        ((Lexus) car).useNitrousOxideEngine();
+                    }
+                    if (car instanceof Toyota) {
+                        ((Toyota) car).useNitrousOxideEngine();
+                    }
+                }
             }
         }
 
+    }
 
+    private static void checkFastestCar(List<Object> cars) {
+        int speed;
+        int fastestSpeed = 0;
+        String fastestCar = "";
 
+        for (Object car : cars) {
+            if (car instanceof Audi) {
+                speed = Integer.parseInt(((Audi) car).showCurrentSpeed());
+                if (speed > fastestSpeed) {
+                    fastestSpeed = speed;
+                    fastestCar = "Audi";
+                }
+            } else if (car instanceof Bmw) {
+                speed = Integer.parseInt(((Bmw) car).showCurrentSpeed());
+                if (speed > fastestSpeed) {
+                    fastestSpeed = speed;
+                    fastestCar = "Bmw";
+                }
+            } else if (car instanceof Lexus) {
+                speed = Integer.parseInt(((Lexus) car).showCurrentSpeed());
+                if (speed > fastestSpeed) {
+                    fastestSpeed = speed;
+                    fastestCar = "Lexus";
+                }
+            } else if (car instanceof Mazda) {
+                speed = Integer.parseInt(((Mazda) car).showCurrentSpeed());
+                if (speed > fastestSpeed) {
+                    fastestSpeed = speed;
+                    fastestCar = "Mazda";
+                }
+            } else if (car instanceof Tesla) {
+                speed = Integer.parseInt(((Tesla) car).showCurrentSpeed());
+                if (speed > fastestSpeed) {
+                    fastestSpeed = speed;
+                    fastestCar = "Tesla";
+                }
+            } else if (car instanceof Toyota) {
+                speed = Integer.parseInt(((Toyota) car).showCurrentSpeed());
+                if (speed > fastestSpeed) {
+                    fastestSpeed = speed;
+                    fastestCar = "Toyota";
+                }
+            }
+        }
 
+        System.out.println("The fastest car is: " + fastestCar + " with speed: " + fastestSpeed);
     }
 }
