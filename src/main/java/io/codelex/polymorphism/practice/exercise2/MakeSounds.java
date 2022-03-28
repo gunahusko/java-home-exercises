@@ -16,8 +16,15 @@ public class MakeSounds {
 
         List<Object> soundList = Arrays.asList(firework1, firework2, firework3, parrot1, parrot2, parrot3, radio1, radio2);
 
-        for (Object sounds : soundList) {
+        for (Object sound : soundList) {
+            if (sound instanceof Firework) {
+                ((Firework) sound).playSound();
+            } else if (sound instanceof Parrot) {
+                ((Parrot) sound).playSound();
+            } else if (sound instanceof Radio) {
+                ((Radio) sound).playSound();
+            }
         }
-        
+
     }
 }
