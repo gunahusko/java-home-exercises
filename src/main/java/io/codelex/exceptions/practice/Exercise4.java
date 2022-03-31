@@ -13,17 +13,17 @@ public class Exercise4 {
             System.out.println("Be sure to enter a number.");
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Enter number as first parameter.");
-        } catch (IllegalArgumentException e) {
-        System.out.println("Result will be imaginary number.");
+        } catch (NonPositiveNumberException e) {
+        System.out.println("Result will be imaginary number." + e);
         }
     }
 
-    static double getInput() {
+    static double getInput() throws NonPositiveNumberException {
         Scanner in = new Scanner(System.in);
         System.out.print("Please enter a number: ");
         double d = Double.parseDouble(in.nextLine());
         if (d < 0) {
-            throw new IllegalArgumentException("Number is negative");
+            throw new NonPositiveNumberException("Number is negative.");
         }
         return d;
     }
