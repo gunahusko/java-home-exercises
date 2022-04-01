@@ -14,15 +14,20 @@ public class test2Basket {
         Apple apple9 = new Apple();
 
         Basket<Integer, Apple> basket2 = new Basket<>();
-        basket2.addToBasket(1, apple1);
-        basket2.addToBasket(2, apple2);
-        basket2.addToBasket(3, apple3);
-        basket2.addToBasket(4, apple4);
-        basket2.addToBasket(5, apple5);
-        basket2.addToBasket(6, apple6);
-        basket2.addToBasket(7, apple7);
-        basket2.addToBasket(8, apple8);
-        basket2.addToBasket(9, apple9);
+
+        try {
+            basket2.addToBasket(1, apple1);
+            basket2.addToBasket(2, apple2);
+            basket2.addToBasket(3, apple3);
+            basket2.addToBasket(4, apple4);
+            basket2.addToBasket(5, apple5);
+            basket2.addToBasket(6, apple6);
+            basket2.addToBasket(7, apple7);
+            basket2.addToBasket(8, apple8);
+            basket2.addToBasket(9, apple9);
+        } catch (BasketFullException e) {
+            System.out.println("A problem occurred: " + e);
+        }
 
 
         try {

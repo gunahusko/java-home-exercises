@@ -1,17 +1,27 @@
 package io.codelex.test.exercise3;
 
-import java.util.function.BiConsumer;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Joiner<T> {
-    private String separator;
+
+    private final String separator;
 
     public Joiner(String separator) {
         this.separator = separator;
     }
 
-    public void join(T... type) {
-       // BiConsumer biConsumer = () -> System.out.println();
+    @SafeVarargs
+    public final String join(T... type) {
+        List<String> listOfTypes = new ArrayList<>();
+
+        for (T element : type) {
+               String str = String.valueOf(element);
+               listOfTypes.add(str);
+        }
+
+        return String.join(separator, listOfTypes);
     }
-
-
 }
