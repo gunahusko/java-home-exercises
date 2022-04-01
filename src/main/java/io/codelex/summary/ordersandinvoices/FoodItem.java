@@ -1,6 +1,5 @@
 package io.codelex.summary.ordersandinvoices;
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -15,16 +14,6 @@ public class FoodItem extends AbstractItem {
 
     public LocalDate getDateOfExpiration() {
         return dateOfExpiration;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public BigDecimal getPriceWithoutVat() {
-        return new BigDecimal(priceWithoutVat);
     }
 
     @Override

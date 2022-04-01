@@ -1,6 +1,5 @@
 package io.codelex.summary.ordersandinvoices;
 
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class ElectronicsItem extends AbstractItem{
@@ -9,16 +8,6 @@ public class ElectronicsItem extends AbstractItem{
     public ElectronicsItem(String name, double priceWithoutVat, int powerInWatts) {
         super(name, priceWithoutVat);
         this.powerInWatts = powerInWatts;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public BigDecimal getPriceWithoutVat() {
-        return new BigDecimal(priceWithoutVat);
     }
 
     @Override
