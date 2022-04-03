@@ -9,7 +9,9 @@ public class ReverseContent {
     public static void main(String[] args) throws IOException {
         try {
             FileReader fileReader = new FileReader("src/main/java/io/codelex/test/exercise4/text.txt");
-            FileWriter fileWriter = new FileWriter("src/main/java/io/codelex/test/exercise4/textReverse.txt");
+            StringBuilder title = new StringBuilder("textReverse.txt");
+            title.reverse();
+            FileWriter fileWriter = new FileWriter("src/main/java/io/codelex/test/exercise4/" + title);
 
             StringBuilder string = new StringBuilder();
             int i;

@@ -1,7 +1,5 @@
 package io.codelex.test.exercise3;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +16,8 @@ public class Joiner<T> {
         List<String> listOfTypes = new ArrayList<>();
 
         for (T element : type) {
-               String str = String.valueOf(element);
-               listOfTypes.add(str);
+            String str = String.valueOf(element);
+            listOfTypes.add(str);
         }
 
         return String.join(separator, listOfTypes);
