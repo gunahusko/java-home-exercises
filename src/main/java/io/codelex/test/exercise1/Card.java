@@ -8,13 +8,34 @@ public abstract class Card {
     protected String ccvCode;
     protected BigDecimal balance;
 
-    public Card(String number, String ownerFullName, String ccvCode, double balance) {
+    public Card(String number, String ownerFullName, String ccvCode, BigDecimal balance) {
         this.number = number;
         this.ownerFullName = ownerFullName;
         this.ccvCode = ccvCode;
-        this.balance = BigDecimal.valueOf(balance);
+        this.balance = balance;
     }
 
-    public abstract void addMoney(double money);
-    public abstract void takeOutMoney(double money) throws NotEnoughFundsException;
+    public String getNumber() {
+        return number;
+    }
+
+    public String getOwnerFullName() {
+        return ownerFullName;
+    }
+
+    public String getCcvCode() {
+        return ccvCode;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void addMoney(BigDecimal money) {
+        balance = balance.add(money);
+    }
+
+    public void takeOutMoney(BigDecimal money) throws NotEnoughFundsException {
+        balance = balance.subtract(money);
+    }
 }
