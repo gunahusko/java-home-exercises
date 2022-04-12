@@ -3,7 +3,7 @@ package io.codelex.collections.practice;
 import java.util.*;
 
 public class Exercise4 {
-    static Set<String> listOfNames = new HashSet<>();
+    private static final Set<String> LIST_OF_NAMES = new HashSet<>();
 
     public static void main(String[] args) {
         userAnswer();
@@ -15,12 +15,12 @@ public class Exercise4 {
         String answer = user.nextLine();
 
         if (answer.length() > 0) {
-            listOfNames.add(answer);
+            LIST_OF_NAMES.add(answer);
             userAnswer();
         } else {
             System.out.print("Unique name list contains: ");
 
-            for (String element : listOfNames) {
+            for (String element : LIST_OF_NAMES) {
                 System.out.print(element + " ");
             }
             user.close();

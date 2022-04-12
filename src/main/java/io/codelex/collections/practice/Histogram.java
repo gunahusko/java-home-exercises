@@ -39,27 +39,28 @@ public class Histogram {
         StringBuilder from100 = new StringBuilder();
 
         for (String number : splitScores) {
-            if (Integer.parseInt(number) >= 0 && Integer.parseInt(number) <= 9) {
+            int num = Integer.parseInt(number);
+            if (num < 10) {
                 from00to09.append("*");
-            } else if (Integer.parseInt(number) >= 10 && Integer.parseInt(number) <= 19) {
+            } else if (num < 20) {
                 from10to19.append("*");
-            } else if (Integer.parseInt(number) >= 20 && Integer.parseInt(number) <= 29) {
+            } else if (num < 30) {
                 from20to29.append("*");
-            } else if (Integer.parseInt(number) >= 30 && Integer.parseInt(number) <= 39) {
+            } else if (num < 40) {
                 from30to39.append("*");
-            } else if (Integer.parseInt(number) >= 40 && Integer.parseInt(number) <= 49) {
+            } else if (num < 50) {
                 from40to49.append("*");
-            } else if (Integer.parseInt(number) >= 50 && Integer.parseInt(number) <= 59) {
+            } else if (num < 60) {
                 from50to59.append("*");
-            } else if (Integer.parseInt(number) >= 60 && Integer.parseInt(number) <= 69) {
+            } else if (num < 70) {
                 from60to69.append("*");
-            } else if (Integer.parseInt(number) >= 70 && Integer.parseInt(number) <= 79) {
+            } else if (num < 80) {
                 from70to79.append("*");
-            } else if (Integer.parseInt(number) >= 80 && Integer.parseInt(number) <= 89) {
+            } else if (num < 90) {
                 from80to89.append("*");
-            } else if (Integer.parseInt(number) >= 90 && Integer.parseInt(number) <= 99) {
+            } else if (num < 100) {
                 from90to99.append("*");
-            } else if (Integer.parseInt(number) >= 100) {
+            } else {
                 from100.append("*");
             }
         }
