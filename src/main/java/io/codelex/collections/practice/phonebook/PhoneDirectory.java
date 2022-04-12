@@ -1,6 +1,5 @@
 package io.codelex.collections.practice.phonebook;
 
-import java.util.Map;
 import java.util.TreeMap;
 
 public class PhoneDirectory {
@@ -18,13 +17,7 @@ public class PhoneDirectory {
         if (!find(name)) {
             return null;
         } else {
-            String result = "";
-            for (Map.Entry<String, String> info : phoneData.entrySet()) {
-                if (info.getKey().equals(name)) {
-                    result = info.getValue();
-                }
-            }
-            return result;
+            return phoneData.get(name);
         }
     }
 
@@ -36,10 +29,8 @@ public class PhoneDirectory {
         if (find(name)) {
             System.out.println("Already exist.");
         } else {
-            PhoneEntry newEntry = new PhoneEntry();  // Create a new pair.
-            newEntry.name = name;
-            newEntry.number = number;
-            phoneData.put(newEntry.name, newEntry.number);   // Add the new pair to the array.
+            PhoneEntry newEntry = new PhoneEntry(name, number);  // Create a new pair.
+            phoneData.put(newEntry.getName(), newEntry.getNumber());   // Add the new pair to the array.
         }
     }
 
