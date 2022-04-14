@@ -10,6 +10,7 @@ public class Exercise2 {
             methodB(number1, number2);
         } catch (ArithmeticException e) {
             e.printStackTrace();
+            throw e;
         }
     }
 
@@ -18,6 +19,7 @@ public class Exercise2 {
             methodC(number1, number2);
         } catch (ArithmeticException e) {
             e.printStackTrace();
+            throw e;
         }
     }
 
@@ -27,6 +29,7 @@ public class Exercise2 {
             System.out.println(result);
         } catch (ArithmeticException e) {
             e.printStackTrace();
+            throw e;
         }
     }
 }
