@@ -14,7 +14,7 @@ public class Commission extends Hourly {
     }
 
     public double pay() {
-        return payRate * hoursWorked + (totalSales * commissionRate / 100);
+        return payRate * super.getHoursWorked() + (totalSales * commissionRate / 100);
     }
 
     public String toString() {

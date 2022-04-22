@@ -4,8 +4,8 @@ import java.text.DecimalFormat;
 
 public class Zebra extends Mammal {
 
-    public Zebra(String animalName, String animalType, Double animalWeight, Integer foodEaten, String livingRegion) {
-        super(animalType, animalName, animalWeight, foodEaten, livingRegion);
+    public Zebra(String animalName, String animalType, Double animalWeight, String livingRegion) {
+        super(animalType, animalName, animalWeight, livingRegion);
     }
 
     @Override
@@ -16,8 +16,8 @@ public class Zebra extends Mammal {
     @Override
     public void eat(String food) {
         if (!food.equals("vegetable")) {
-            System.out.println(animalType + " are not eating that type of food!");
-            foodEaten = 0;
+            System.out.println(super.getAnimalType() + " are not eating that type of food!");
+            super.setFoodEaten(0);
         } else {
             System.out.println(this);
         }
@@ -26,6 +26,11 @@ public class Zebra extends Mammal {
     @Override
     public String toString() {
         DecimalFormat format = new DecimalFormat("0.#");
-        return "Zebra[" + animalName + ", " + animalType + ", " + format.format(animalWeight) + ", " + livingRegion + ", " + foodEaten + "]";
+        return "Zebra["
+                + super.getAnimalName() + ", "
+                + super.getAnimalType() + ", "
+                + format.format(super.getAnimalWeight()) + ", "
+                + super.getLivingRegion() + ", "
+                + super.getFoodEaten() + "]";
     }
 }
