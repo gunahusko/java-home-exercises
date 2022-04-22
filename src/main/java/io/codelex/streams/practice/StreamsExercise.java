@@ -185,7 +185,7 @@ public class StreamsExercise {
 
     public static List<Integer> generate10RandomNumbers() {
         return new Random()
-                .ints(0,350)
+                .ints(0, 350)
                 .limit(10)
                 .boxed()
                 .collect(Collectors.toList());
@@ -193,7 +193,7 @@ public class StreamsExercise {
 
     public static User findOldest(List<User> users) {
         return users.stream()
-                .reduce((user1, user2) -> user1.getAge() > user2.getAge() ? user1 : user2)
+                .max(Comparator.comparingInt(User::getAge))
                 .orElse(new User(2));
     }
 
