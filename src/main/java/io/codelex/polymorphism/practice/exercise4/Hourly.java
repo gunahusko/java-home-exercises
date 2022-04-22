@@ -1,7 +1,7 @@
 package io.codelex.polymorphism.practice.exercise4;
 
 public class Hourly extends Employee {
-    protected int hoursWorked;
+    private int hoursWorked;
 
     //-----------------------------------------------------------------
     // Sets up this hourly employee using the specified information.
@@ -10,6 +10,10 @@ public class Hourly extends Employee {
                   String socSecNumber, double rate) {
         super(eName, eAddress, ePhone, socSecNumber, rate);
         hoursWorked = 0;
+    }
+
+    public int getHoursWorked() {
+        return hoursWorked;
     }
 
     //-----------------------------------------------------------------

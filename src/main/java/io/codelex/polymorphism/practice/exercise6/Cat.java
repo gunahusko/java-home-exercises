@@ -5,8 +5,8 @@ import java.text.DecimalFormat;
 public class Cat extends Felime {
     private final String breed;
 
-    public Cat(String animalType, String animalName, Double animalWeight, Integer foodEaten, String livingRegion, String breed) {
-        super(animalType, animalName, animalWeight, foodEaten, livingRegion);
+    public Cat(String animalType, String animalName, Double animalWeight, String livingRegion, String breed) {
+        super(animalType, animalName, animalWeight, livingRegion);
         this.breed = breed;
     }
 
@@ -23,7 +23,12 @@ public class Cat extends Felime {
     @Override
     public String toString() {
         DecimalFormat format = new DecimalFormat("0.#");
-        return animalType + "[" + animalName + ", " + breed + ", " + format.format(animalWeight) + ", " + livingRegion + ", " + foodEaten + "]";
+        return super.getAnimalType() + "["
+                + super.getAnimalName() + ", "
+                + breed + ", "
+                + format.format(super.getAnimalWeight()) + ", "
+                + super.getLivingRegion() + ", "
+                + super.getFoodEaten() + "]";
 
     }
 }

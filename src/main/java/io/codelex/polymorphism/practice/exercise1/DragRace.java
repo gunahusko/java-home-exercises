@@ -23,43 +23,29 @@ public class DragRace {
         Tesla tesla = new Tesla();
         Toyota toyota = new Toyota();
 
-        List<Object> cars = Arrays.asList(audi, bmw, lexus, mazda, tesla, toyota);
+        List<Car> cars = Arrays.asList(audi, bmw, lexus, mazda, tesla, toyota);
 
         speedUpCars(cars);
         checkFastestCar(cars);
     }
 
-    private static void speedUpCars(List<Object> cars) {
-        for (int i = 0; i < 10; i++) {
-            for (Object car : cars) {
-                if (car instanceof Audi) {
-                    ((Audi) car).speedUp();
-                } else if (car instanceof Bmw) {
-                    ((Bmw) car).speedUp();
-                } else if (car instanceof Lexus) {
-                    ((Lexus) car).speedUp();
-                } else if (car instanceof Mazda) {
-                    ((Mazda) car).speedUp();
-                } else if (car instanceof Tesla) {
-                    ((Tesla) car).speedUp();
-                } else if (car instanceof Toyota) {
-                    ((Toyota) car).speedUp();
-                }
+    private static void speedUpCars(List<Car> cars) {
+        cars.forEach(Car::startEngine);
 
-                if (i == 3) {
-                    if (car instanceof Lexus) {
-                        ((Lexus) car).useNitrousOxideEngine();
+        for (int i = 1; i <= 10; i++) {
+            cars.forEach(Car::speedUp);
+
+            if (i == 3) {
+                cars.forEach(car -> {
+                    if (car instanceof CarBoost) {
+                        ((CarBoost) car).useNitrousOxideEngine();
                     }
-                    if (car instanceof Toyota) {
-                        ((Toyota) car).useNitrousOxideEngine();
-                    }
-                }
+                });
             }
         }
-
     }
 
-    private static void checkFastestCar(List<Object> cars) {
+    private static void checkFastestCar(List<Car> cars) {
         int speed;
         int fastestSpeed = 0;
         String fastestCar = "";
