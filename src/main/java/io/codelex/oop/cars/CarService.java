@@ -1,6 +1,7 @@
 package io.codelex.oop.cars;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class CarService {
@@ -28,7 +29,7 @@ public class CarService {
     public void findCarByEngine(EngineType engineType) {
         System.out.println("Car with a " + engineType + " engine type:");
         for (Car car : carsList) {
-            if (car.getEngineType() == EngineType.V12) {
+            if (car.getEngineType() == engineType) {
                 System.out.println(car);
             }
         }
@@ -87,13 +88,8 @@ public class CarService {
                 carsByPrice.add(car);
             }
         }
-        carsByPrice.sort((car1, car2) -> {
-            int temp = 0;
-            if (car1.getPrice() > car2.getPrice()) {
-                temp = car1.getPrice();
-            }
-            return temp;
-        });
+
+        carsByPrice.sort(Comparator.comparing(Car::getPrice));
 
         for (Car car : carsByPrice) {
             System.out.println(car);

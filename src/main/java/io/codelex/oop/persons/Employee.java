@@ -20,6 +20,6 @@ public class Employee extends Person{
 
     @Override
     public String getInfo() {
-        return  position + " " + firstName + " " + lastName + " works since " + date + " (" + getWorkExperience() + " year experience)";
+        return  position + " " + super.getFirstName() + " " + super.getLastName() + " works since " + date + " (" + getWorkExperience() + " year experience)";
     }
 }

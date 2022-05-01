@@ -1,11 +1,11 @@
 package io.codelex.oop.parcels;
 
-public class Parcel implements Validatable{
-    int xLength;
-    int yLength;
-    int zLength;
-    float weight;
-    boolean isExpress;
+public class Parcel implements Validatable {
+    private final int xLength;
+    private final int yLength;
+    private final int zLength;
+    private final float weight;
+    private boolean isExpress;
 
     public Parcel(int xLength, int yLength, int zLength, float weight) {
         this.xLength = xLength;
@@ -31,12 +31,12 @@ public class Parcel implements Validatable{
 
     @Override
     public String toString() {
-        return "Parcel{" +
-                "xLength=" + xLength +
-                ", yLength=" + yLength +
-                ", zLength=" + zLength +
-                ", weight=" + weight +
-                ", isExpress=" + isExpress +
-                '}';
+        return "Parcel{"
+                + "xLength=" + xLength
+                + ", yLength=" + yLength
+                + ", zLength=" + zLength
+                + ", weight=" + weight
+                + ", isExpress=" + isExpress
+                + '}';
     }
 }
