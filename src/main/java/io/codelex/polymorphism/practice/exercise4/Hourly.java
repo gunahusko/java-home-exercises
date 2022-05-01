@@ -12,6 +12,10 @@ public class Hourly extends Employee {
         hoursWorked = 0;
     }
 
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
     //-----------------------------------------------------------------
     // Adds the specified number of hours to this employee's
     // accumulated hours.
